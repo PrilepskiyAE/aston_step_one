@@ -1,15 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import homework_one.ImmutablePerson;
+import homework_one.Person;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Homework one
+        // Реализовать свой иммутабельный класс, который будет внутри себя содержать поле с изменяемым классом.
+        // для удобства я создал два класса ImmutablePerson Person
+        Person originalPerson = new Person("Alex", 33);
+        ImmutablePerson immutablePerson = new ImmutablePerson(originalPerson);
+        System.out.println("Исходное состояние: " + immutablePerson );
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        originalPerson.setAge(34);
+        originalPerson.setName("Prilepskiy Alex");
+
+        System.out.println("После изменения исходного Person: " + immutablePerson);
+        System.out.println("Исходный Person теперь: " + originalPerson);
+
+        Person personFromImmutable= immutablePerson.getPerson();
+        personFromImmutable.setAge(-100);
+        personFromImmutable.setName("Hacker");
+
+        System.out.println("После попытки изменения через геттер: " + immutablePerson);
+        System.out.println("Копия из геттера: " + personFromImmutable);
+        /*
+        Вывод:
+
+         Исходное состояние: ImmutablePerson{person=Person{name='Alex', age=33}}
+         После изменения исходного Person: ImmutablePerson{person=Person{name='Prilepskiy Alex', age=34}}
+         Исходный Person теперь: Person{name='Prilepskiy Alex', age=34}
+         После попытки изменения через геттер: ImmutablePerson{person=Person{name='Prilepskiy Alex', age=34}}
+         Копия из геттера: Person{name='Hacker', age=-100}
+        */
     }
 }
