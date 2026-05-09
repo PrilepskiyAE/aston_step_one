@@ -8,10 +8,9 @@ public class AuthHandler extends RequestHandler {
             System.out.println("✅ Аутентификация пройдена");
         } else {
             System.out.println("❌ Аутентификация не пройдена");
-            return; // Прерываем цепочку при ошибке
+            return;
         }
 
-        // Передаём дальше, если аутентификация пройдена
         if (nextHandler != null) {
             nextHandler.handleRequest(request);
         }

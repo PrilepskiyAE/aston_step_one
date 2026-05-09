@@ -6,8 +6,6 @@ public class LoggingHandler extends RequestHandler {
         System.out.println("📊 Логирование: " + request.getMethod() + " " + request.getPath());
         System.out.println("   Токен: " + (request.getAuthToken() != null ? "скрыт" : "отсутствует"));
         System.out.println("   Роль: " + request.getUserRole());
-
-        // Это последний обработчик, дальше передавать не нужно
     }
 }
 

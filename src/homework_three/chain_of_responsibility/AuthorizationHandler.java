@@ -16,10 +16,9 @@ public class AuthorizationHandler extends RequestHandler {
             System.out.println("✅ Авторизация пройдена (публичный ресурс)");
         } else {
             System.out.println("❌ Доступ запрещён");
-            return; // Запрещаем доступ и прерываем цепочку
+            return;
         }
 
-        // Передаём дальше
         if (nextHandler != null) {
             nextHandler.handleRequest(request);
         }

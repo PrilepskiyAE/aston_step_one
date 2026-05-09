@@ -36,7 +36,7 @@ public class Pizza {
 
         public Builder cheese(boolean value) {
             cheese = value;
-            return this; // Возвращаем this для цепочки вызовов
+            return this;
         }
 
         public Builder pepperoni(boolean value) {
