@@ -1,5 +1,11 @@
 import homework_one.ImmutablePerson;
 import homework_one.Person;
+import homework_three.adapter.AdapterExemple;
+import homework_three.builder.BuilderExemple;
+import homework_three.chain_of_responsibility.ChainOfResponsibilityExemple;
+import homework_three.decorator.DecoratorExemple;
+import homework_three.proxy.ProxyExemple;
+import homework_three.strategy.StrategyExemple;
 import homework_two.Book;
 import homework_two.Student;
 import homework_two.StudentManager;
@@ -9,7 +15,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         //  homeworkOne();
-        homeworkTwo();
+        // homeworkTwo();
+        homeworkThree();
     }
 
     static void homeworkOne() {
@@ -60,5 +67,14 @@ public class Main {
                         year -> System.out.println("Год выпуска найденной книги: " + year),
                         () -> System.out.println("Книга не найдена")
                 );
+    }
+
+    static void homeworkThree(){
+        StrategyExemple.invoke();
+        ChainOfResponsibilityExemple.invoke();
+        BuilderExemple.invoke();
+        ProxyExemple.invoke();
+        DecoratorExemple.invoke();
+        AdapterExemple.invoke();
     }
 }
