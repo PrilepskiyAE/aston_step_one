@@ -1,3 +1,6 @@
+import homework_four.AlertOutput;
+import homework_four.DeadlockExemple;
+import homework_four.LivelockExemple;
 import homework_one.ImmutablePerson;
 import homework_one.Person;
 import homework_three.adapter.AdapterExemple;
@@ -16,7 +19,8 @@ public class Main {
     public static void main(String[] args) {
         //  homeworkOne();
         // homeworkTwo();
-        homeworkThree();
+       // homeworkThree();
+        homeworkFour();
     }
 
     static void homeworkOne() {
@@ -76,5 +80,16 @@ public class Main {
         ProxyExemple.invoke();
         DecoratorExemple.invoke();
         AdapterExemple.invoke();
+    }
+
+    static void homeworkFour(){
+          //  DeadlockExemple.invoke();// потоки заблокируют друг друга
+        //LivelockExemple.invoke();// поток не заблокирован, он активен, но не делает полезной работы.
+        AlertOutput.invoke();
+        /* Semaphore1 изначально имеет 1 разрешение — поток 1 может сразу начать работу.
+        Semaphore2 изначально имеет 0 разрешений — поток 2 ждёт.
+        После вывода 1 поток 1 отдаёт разрешение потоку 2
+        После вывода 2 поток 2 отдаёт разрешение потоку 1
+         */
     }
 }
